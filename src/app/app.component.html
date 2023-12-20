@@ -1,12 +1,47 @@
-<p>hola mundo 2</p>
-<h1>Forma 1: entidad.entidad_atributo</h1>
-{{persona.persona_nombre}}
-
-<h1>Forma 2: entidad.atributo</h1>
-{{persona1.nombre}}
-
-<!--
-<div class="flex justify-center pt-fl4">
-    hola
-</div>
--->
+<section class="flex flex-col mx-4 my-4">
+    <section class="flex space-x-4 text-[#1f1f20]">
+        <div class="flex flex-col w-52 h-24 border-2 space-y-2 border-gray-100 rounded-xl justify-center px-4">
+            <span class="text-xl font-bold">+</span>
+            <p class="font-bold">New document</p>
+        </div>
+        <div class="flex flex-col w-52 h-24 border-2 space-y-2 border-gray-100 rounded-xl justify-center px-4">
+            <span class="text-xl font-bold">x</span>
+            <p class="font-bold">New project</p>
+        </div>
+        <div class="flex flex-col w-52 h-24 border-2 space-y-2 border-gray-100 rounded-xl justify-center px-4">
+            <span class="text-xl font-bold">%</span>
+            <p class="font-bold">New team</p>
+        </div>
+        <div class="flex flex-col w-52 h-24 border-2 space-y-2 border-gray-100 rounded-xl justify-center px-4">
+            <span class="text-xl font-bold">%</span>
+            <p class="font-bold">New organization</p>
+        </div>
+    </section>
+    <h2 class="my-8 font-bold text-xl">All folders</h2>
+    <section class="flex text-[#1f1f20]">
+        <div class="hover:bg-sky-200 flex flex-col w-28 h-12 border-2 space-y-2 border-gray-100 rounded-xl items-center justify-center px-4">
+            <p class="font-bold">Recent</p>
+        </div>
+        <div class="flex flex-col w-28 h-12 space-y-2 rounded-xl items-center justify-center px-4 bg-[#f6f6f6]">
+            <p class="font-bold">Favorites</p>
+        </div>
+        <div class="flex flex-col w-28 h-12 space-y-2 rounded-xl items-center justify-center px-4 bg-[#f6f6f6]">
+            <p class="font-bold">Shared</p>
+        </div>
+        <div class="flex flex-col w-28 h-12 space-y-2 rounded-xl items-center justify-center px-4 bg-[#f6f6f6]">
+            <p class="font-bold">External</p>
+        </div>
+        <div class="flex flex-col w-28 h-12 space-y-2 rounded-xl items-center justify-center px-4 bg-[#f6f6f6]">
+            <p class="font-bold">Archived</p>
+        </div>
+    </section>
+    <div class="mt-8">
+        @for (dato of lista; track dato?.producto_id) {
+            <p>
+                <span class="font-bold">{{dato?.producto_nombre}}</span> S/ {{dato?.producto_precio}}
+            </p>
+          } @empty {
+            Lista vacia de productos
+          }
+    </div>
+</section>
