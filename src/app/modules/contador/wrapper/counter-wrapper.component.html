@@ -1,0 +1,13 @@
+<div class="w-full h-full flex flex-col items-center justify-center"
+     *ngIf="contadorStore.vm() as vm">
+  <h1 class="text-8xl font-light mb-2">{{vm.contador}}</h1>
+  <div>
+    <button type="button" class="pointer inline-block font-semibold text-base text-center align-middle select-none bg-transparent
+                                     border border-solid rounded px-3 py-1.5 mr-2 text-[#6c757d] border-[#6c757d]"
+            [disabled]="vm.contador == 0"
+    (click)="decrementar()">Decrementar</button>
+    <button type="button" class="pointer inline-block font-semibold text-base text-center align-middle select-none bg-transparent
+                                     border border-solid rounded px-3 py-1.5 mr-2 text-[#007bff] border-[#007bff]"
+            (click)="incrementar()">Aumentar</button>
+  </div>
+</div>

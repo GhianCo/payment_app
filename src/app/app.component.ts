@@ -1,31 +1,19 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import {Component, inject} from '@angular/core';
+import {CommonModule, NgIf} from '@angular/common';
+import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
+import {ContadorStore} from "./modules/contador/data-access/contador.store";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet],
+  imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive, NgIf],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent implements  OnInit, OnDestroy {
+export class AppComponent {
+  title = 'app-store';
 
-  public lista: any[] = [];
+  contadorStore = inject(ContadorStore)
 
-  constructor(private http: HttpClient){}
-
-  //Inicializador
-  ngOnInit(): void {
-    this.http.get('http://localhost/tiendasmilan/api/rest/producto/obtenerListaProductoPaginadoPorLocal/1/-1/-1/-1/-1/1/10?token=MjM0MjMyMw')
-      .subscribe((data: any) => {
-        this.lista = data?.data;
-      });
-  }
-
-  ngOnDestroy(): void {
-    console.log('destroy');
-  }
 }
